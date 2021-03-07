@@ -1,5 +1,5 @@
 {
-  "name": "platform",
+  "name": "@bpetryshyn/nails-platform",
   "version": "0.1.0",
   "bin": {
     "platform": "bin/platform.js"
