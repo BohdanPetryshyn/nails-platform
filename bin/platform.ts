@@ -1,7 +1,18 @@
 #!/usr/bin/env node
 import 'source-map-support/register';
 import * as cdk from '@aws-cdk/core';
-import { PlatformStack } from '../lib/platform-stack';
+import {VpcMainStack} from "../lib/vpc-main-stack";
+import {EcsClusterMainStack} from "../lib/ecs-cluster-main-stack";
+import {LoadBalancerMainStack} from "../lib/load-balancer-main-stack";
 
 const app = new cdk.App();
-new PlatformStack(app, 'PlatformStack');
+
+const vpcStack = new VpcMainStack(app, 'vpc-main-stack');
+
+const ecsClusterStack = new EcsClusterMainStack(app, 'ecs-cluster-stack', {
+    vpc: vpcStack.vpc
+});
+
+const loadBalancerStack = new LoadBalancerMainStack(app, 'load-balancer-stack', {
+    vpc: vpcStack.vpc
+});
