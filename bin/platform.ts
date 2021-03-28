@@ -11,13 +11,13 @@ const vpcStack = new VpcMainStack(app, 'vpc-main-stack');
 
 const loadBalancerStack = new LoadBalancerMainStack(
   app,
-  "load-balancer-stack",
+  'load-balancer-stack',
   {
     vpc: vpcStack.vpc,
   },
 );
 
-const ecsClusterStack = new EcsClusterMainStack(app, "ecs-cluster-stack", {
+const ecsClusterStack = new EcsClusterMainStack(app, 'ecs-cluster-stack', {
   vpc: vpcStack.vpc,
   loadBalancer: loadBalancerStack.loadBalancer,
 });
