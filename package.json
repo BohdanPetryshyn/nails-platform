@@ -38,8 +38,10 @@
     "@aws-cdk/core": "^1.92.0",
     "source-map-support": "^0.5.16"
   },
-  "simple-git-hooks": {
-    "pre-commit": "npx lint-staged"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "lint-staged": {
     "*.ts": "eslint --cache --fix"
