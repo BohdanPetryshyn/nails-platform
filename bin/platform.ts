@@ -11,7 +11,7 @@ const vpcStack = new VpcMainStack(app, 'vpc-main-stack');
 
 const loadBalancerStack = new LoadBalancerMainStack(
   app,
-  'load-balancer-stack',
+  "load-balancer-stack",
   {
     vpc: vpcStack.vpc,
   },
