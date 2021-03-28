@@ -1,5 +1,5 @@
-import {SubnetType, Vpc} from "@aws-cdk/aws-ec2";
-import {Construct, Stack, StackProps} from "@aws-cdk/core";
+import { SubnetType, Vpc } from '@aws-cdk/aws-ec2';
+import { Construct, Stack, StackProps } from '@aws-cdk/core';
 import * as ssm from '@aws-cdk/aws-ssm';
 
 export class VpcMainStack extends Stack {
@@ -17,12 +17,12 @@ export class VpcMainStack extends Stack {
           name: 'main-ecs-cluster',
           subnetType: SubnetType.PUBLIC,
         },
-      ]
+      ],
     });
 
     new ssm.StringParameter(this, 'vpc-main-id-parameter', {
       parameterName: 'nails-vpc-main-id',
-      stringValue: this.vpc.vpcId
+      stringValue: this.vpc.vpcId,
     });
   }
 }
